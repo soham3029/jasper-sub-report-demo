@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2a205be2-75f6-4751-a850-14ad52a8b09f">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="firstName" class="java.lang.String"/>
+	<field name="lastName" class="java.lang.String"/>
+	<field name="dop" class="java.util.Date"/>
+	<field name="listOfItems" class="java.util.List"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="550" height="60" uuid="d27b257f-fd10-47b3-bd2a-c64106cb0d22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Shopping Cart Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="303" splitType="Stretch">
+			<textField>
+				<reportElement x="200" y="10" width="100" height="30" uuid="02d934a5-8820-4824-90c5-764641a747eb"/>
+				<textFieldExpression><![CDATA[$F{firstName}+ " " + $F{lastName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="10" width="100" height="30" uuid="30fcbf5d-f1ea-478c-95db-6e913de14c16"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="60" width="100" height="30" uuid="3d207b00-d847-47f8-9372-5c2ad72b55bf"/>
+				<textFieldExpression><![CDATA[$F{dop}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="60" width="100" height="30" uuid="a2210338-c6bb-4c98-9b09-3d7a57045358"/>
+				<text><![CDATA[Date Of Purchase]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="40" y="103" width="450" height="77" uuid="bebb219d-798d-4bfc-a622-f1add75e08e2"/>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{listOfItems})]]></dataSourceExpression>
+				<subreportExpression><![CDATA["subreport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="234" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
